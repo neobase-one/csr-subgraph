@@ -1,0 +1,20 @@
+{
+  "name": "turnstile",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ turnstile",
+    "lint": "prettier --check .",
+    "prettier": "prettier --write ."
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.38.0",
+    "@graphprotocol/graph-ts": "0.29.1",
+    "@types/js-yaml": "^4.0.5",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.4.1"
+  }
+}

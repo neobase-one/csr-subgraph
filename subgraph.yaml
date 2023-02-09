@@ -1,0 +1,45 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Turnstile
+    network: goerli
+    source:
+      address: "0x42f5c5ce8231AC953D0641CD48517Cdc445D21d4"
+      abi: Turnstile
+      startBlock: 8462276
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - ApprovalForAll
+        - Assign
+        - DistributeFees
+        - OwnershipTransferred
+        - Register
+        - Transfer
+        - Withdraw
+      abis:
+        - name: Turnstile
+          file: ./abis/Turnstile.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll
+        - event: Assign(address,uint256)
+          handler: handleAssign
+        - event: DistributeFees(uint256,uint256)
+          handler: handleDistributeFees
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Register(address,address,uint256)
+          handler: handleRegister
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+        - event: Withdraw(uint256,address,uint256)
+          handler: handleWithdraw
+      file: ./src/mappings/Turnstile.ts
