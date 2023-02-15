@@ -4,11 +4,11 @@ schema:
 dataSources:
   - kind: ethereum
     name: Turnstile
-    network: goerli
+    network: canto
     source:
-      address: "0x42f5c5ce8231AC953D0641CD48517Cdc445D21d4"
+      address: "0xEcf044C5B4b867CFda001101c617eCd347095B44"
       abi: Turnstile
-      startBlock: 8462276
+      startBlock: 2683619
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
