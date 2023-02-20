@@ -14,32 +14,15 @@ dataSources:
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - Approval
-        - ApprovalForAll
-        - Assign
-        - DistributeFees
-        - OwnershipTransferred
-        - Register
-        - Transfer
-        - Withdraw
+        - NFT
       abis:
         - name: Turnstile
           file: ./abis/Turnstile.json
       eventHandlers:
-        - event: Approval(indexed address,indexed address,indexed uint256)
-          handler: handleApproval
-        - event: ApprovalForAll(indexed address,indexed address,bool)
-          handler: handleApprovalForAll
         - event: Assign(address,uint256)
           handler: handleAssign
-        - event: DistributeFees(uint256,uint256)
-          handler: handleDistributeFees
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
         - event: Register(address,address,uint256)
           handler: handleRegister
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
-        - event: Withdraw(uint256,address,uint256)
-          handler: handleWithdraw
       file: ./src/mappings/Turnstile.ts
